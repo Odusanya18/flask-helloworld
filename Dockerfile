@@ -18,7 +18,7 @@ ENV https_proxy=
 
 USER helloworld
 
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT [ "python", "app.py" ]
 
 #docker run -it — cpus 1 — memory 512Mb helloworld
