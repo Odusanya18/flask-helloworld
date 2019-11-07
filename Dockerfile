@@ -15,6 +15,7 @@ RUN chmod +x harden.sh && \
 
 ENV http_proxy=
 ENV https_proxy=
+ENV PORT=8080
 
 USER helloworld
 
