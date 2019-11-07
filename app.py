@@ -15,7 +15,7 @@ def exploit():
 
     for line in io.TextIOWrapper(proc.stdout, encoding="utf-8"):
       print(line)
-    return "Executed!
+    return "Executed!"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 80))
