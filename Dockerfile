@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:3
 
 COPY requirements.txt requirements.txt
 COPY app.py app.py
