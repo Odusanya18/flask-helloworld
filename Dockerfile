@@ -3,10 +3,10 @@ FROM python:3
 COPY requirements.txt requirements.txt
 COPY app.py app.py
 
-ENV http_proxy=http://172.25.30.117:6060
-ENV https_proxy=http://172.25.30.117:6060
+ENV http_proxy=http://172.16.10.20:8080
+ENV https_proxy=http://172.16.10.20:8080
 
-RUN pip install -r requirements.txt --proxy 172.25.30.117:6060
+RUN pip install -r requirements.txt --proxy 172.16.10.20:8080
 
 COPY ./harden.sh .
 RUN chmod +x harden.sh && \
